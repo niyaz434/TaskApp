@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DashboardActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_frag_add_customer"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/dashboard_toolbar_gradient">
+
+        <ImageView
+            android:id="@+id/add_customer_back_arrow"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingBottom="12dp"
+            android:paddingEnd="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="12dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/customer_title_label"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="?attr/actionBarSize"
+            android:layout_marginLeft="?attr/actionBarSize"
+            android:layout_marginRight="?attr/actionBarSize"
+            android:layout_marginStart="?attr/actionBarSize"
+            android:fontFamily="@font/gotham_rounded_bold_0"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Funds"
+            android:textColor="@color/colorTextWhite"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/funds_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/colorBackgroundPrimary"
+        android:gravity="center_vertical"
+        android:iconifiedByDefault="true"
+        android:layoutDirection="rtl"
+        app:fontFamily="@font/gotham_rounded_medium_0"
+        app:queryHint="Search" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_funds_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical" />
+</LinearLayout>

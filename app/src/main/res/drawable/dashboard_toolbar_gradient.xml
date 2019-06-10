@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/green_gradient"
+        android:drawable="@drawable/horizontal_gradient" />
+    <item
+        android:id="@+id/half_overlay"
+        android:drawable="@drawable/half_overlay"
+        android:top="50dp" />
+</layer-list>
