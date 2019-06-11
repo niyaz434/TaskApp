@@ -6,5 +6,6 @@
 
     <color name="colorTextWhite">#FBF7EE</color>
     <color name="colorBackgroundPrimary">#FBF7EE</color>
+    <color name="colorBackgroundSecondary">#fcf7eb</color>
 
 </resources>

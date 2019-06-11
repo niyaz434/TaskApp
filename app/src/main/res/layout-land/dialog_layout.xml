@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corners"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="4dp"
+        android:src="@drawable/smiley" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gotham_rounded_bold_0"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Fund have been added to your dashboard"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gotham_rounded_light_0"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="ICICI Prudential Value Discovered - Fund Growth has been successfully added to your dashboard"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#63999999" />
+
+    <TextView
+        android:id="@+id/tv_got_it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gotham_rounded_light_0"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Got It"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -22,6 +22,8 @@ public class DashboardActivity extends AppCompatActivity implements SearchView.O
 
     private SearchView funds_search_view;
     private View dashboard_root_view;
+    private View search_funds_empty_layout;
+    private View search_funds_layout;
     private RecyclerView search_funds_recycler_view;
     private ProgressDialog mProgressDialog = null;
     private FundsAdapter fundsAdapter;
@@ -38,11 +40,25 @@ public class DashboardActivity extends AppCompatActivity implements SearchView.O
         funds_search_view = findViewById(R.id.funds_search_view);
         dashboard_root_view = findViewById(R.id.dashboard_root_view);
         search_funds_recycler_view = findViewById(R.id.search_funds_recycler_view);
+        search_funds_empty_layout = findViewById(R.id.search_funds_empty_layout);
+        search_funds_layout = findViewById(R.id.search_funds_layout);
+
         fundsAdapter = new FundsAdapter(this, fundArrayList);
         search_funds_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         search_funds_recycler_view.setHasFixedSize(true);
         search_funds_recycler_view.setAdapter(fundsAdapter);
         funds_search_view.setOnQueryTextListener(this);
+        checkEmpty();
+    }
+
+    private void checkEmpty() {
+        if (fundArrayList != null && fundArrayList.size() > 0) {
+            search_funds_empty_layout.setVisibility(View.GONE);
+            search_funds_layout.setVisibility(View.VISIBLE);
+        } else {
+            search_funds_empty_layout.setVisibility(View.VISIBLE);
+            search_funds_layout.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -57,9 +73,18 @@ public class DashboardActivity extends AppCompatActivity implements SearchView.O
     }
 
     @Override
-    public boolean onQueryTextChange(String newText) {
-        if (newText.length() == 3) {
-            handleFetchFund(newText);
+    public boolean onQueryTextChange(final String newText) {
+        if (newText.length() >= 3) { /*after length is three then only it will query for network*/
+            GlobalApp.getInstance().getHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    handleFetchFund(newText);
+                }
+            });
+        } else {
+            if (fundArrayList != null && fundArrayList.size() > 0) {
+                fundArrayList.clear();
+            }
         }
         return false;
     }
@@ -76,6 +101,7 @@ public class DashboardActivity extends AppCompatActivity implements SearchView.O
                     if (fundsAdapter != null) {
                         fundsAdapter.update(fundArrayList);
                     }
+                    checkEmpty();
                 }
 
                 @Override
