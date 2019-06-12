@@ -6,5 +6,5 @@
     <item
         android:id="@+id/half_overlay"
         android:drawable="@drawable/half_overlay"
-        android:top="50dp" />
+        android:top="?attr/actionBarSize" />
 </layer-list>
